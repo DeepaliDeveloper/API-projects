@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Weather Application</title>
+  </head>
+  <body style="scroll-behavior: smooth">
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #afeeee"
+      id="home"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutApp">About this app</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              id="city"
+            />
+            <button class="btn btn-outline-success" type="submit" id="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="alert alert-warning"
+      role="alert"
+      id="nocty"
+      style="display: none"
+    >
+      No data available for this city.
+    </div>
+    <div class="container" style="height: 705px">
+      <h1 class="my-4 text-center">Weather for <span id="cityName"></span></h1>
+      <span><img src="" alt="" id="weatherImg" /></span>
+      <main style="width: 80%" class="container">
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3" style="background-color: #ffff00">
+                <h4 class="my-0 fw-normal">Temperature</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="temp"></span
+                  ><small class="text-body-secondary fw-light">
+                    <sup>o</sup>C</small
+                  >
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Max Temperature is <span id="max_temp"></span></li>
+                  <li>Min Temperature is <span id="min_temp"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3" style="background-color: #ffff00">
+                <h4 class="my-0 fw-normal">Humidity Information</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="humidity"></span
+                  ><small class="text-body-secondary fw-light"> g/kg</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Wind speed is <span id="wind_speed"></span></li>
+                  <li>Feels Like is <span id="feels_like"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div
+                class="card-header py-3 text-bg-primary"
+                style="background-color: #ffff00"
+              >
+                <h4 class="my-0 fw-normal">Wind Information</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="wind_degrees"></span
+                  ><small class="text-body-secondary fw-light"> deg</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Sunrise is <span id="sunrise"></span></li>
+                  <li>Sunset is <span id="sunset"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="display-6 text-center mb-4">
+          Weather of other comman places
+        </h2>
+
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%"></th>
+                <th style="width: 22%">Temp</th>
+                <th style="width: 22%">Feels_like</th>
+                <th style="width: 22%">Humidity</th>
+                <th style="width: 22%">Min_temp</th>
+                <th style="width: 22%">Max_temp</th>
+                <th style="width: 22%">Wind_speed</th>
+                <th style="width: 22%">Wind_degrees</th>
+                <th style="width: 22%">Sunrise</th>
+                <th style="width: 22%">Sunset</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Shanghai</th>
+                <td><span id="temp0"></span></td>
+                <td><span id="feels_like0"></span></td>
+                <td><span id="humidity0"></span></td>
+                <td><span id="min_temp0"></span></td>
+                <td><span id="max_temp0"></span></td>
+                <td><span id="wind_speed0"></span></td>
+                <td><span id="wind_degrees0"></span></td>
+                <td><span id="sunrise0"></span></td>
+                <td><span id="sunset0"></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Bostan</th>
+                <td><span id="temp1"></span></td>
+                <td><span id="feels_like1"></span></td>
+                <td><span id="humidity1"></span></td>
+                <td><span id="min_temp1"></span></td>
+                <td><span id="max_temp1"></span></td>
+                <td><span id="wind_speed1"></span></td>
+                <td><span id="wind_degrees1"></span></td>
+                <td><span id="sunrise1"></span></td>
+                <td><span id="sunset1"></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Lucknow</th>
+                <td><span id="temp2"></span></td>
+                <td><span id="feels_like2"></span></td>
+                <td><span id="humidity2"></span></td>
+                <td><span id="min_temp2"></span></td>
+                <td><span id="max_temp2"></span></td>
+                <td><span id="wind_speed2"></span></td>
+                <td><span id="wind_degrees2"></span></td>
+                <td><span id="sunrise2"></span></td>
+                <td><span id="sunset2"></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Kolkata</th>
+                <td><span id="temp3"></span></td>
+                <td><span id="feels_like3"></span></td>
+                <td><span id="humidity3"></span></td>
+                <td><span id="min_temp3"></span></td>
+                <td><span id="max_temp3"></span></td>
+                <td><span id="wind_speed3"></span></td>
+                <td><span id="wind_degrees3"></span></td>
+                <td><span id="sunrise3"></span></td>
+                <td><span id="sunset3"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <div class="pg2" id="aboutApp">
+      <h1 class="my-4 text-center"><b style="font-size: 50px;">About this Application</b></h1>
+      <div class="pg2sec1">
+        <div class="box"></div>
+      </div>
+      <div class="pg2sec2">
+        <span style="color: rgb(24, 111, 111);font-size: 50px;">Tools used:</span>
+        <ul>
+          <li>Restful webservices</li>
+          <li>Bootstrap</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Javascript</li>
+        </ul>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="api.js" type="module"></script>
+  </body>
+</html>

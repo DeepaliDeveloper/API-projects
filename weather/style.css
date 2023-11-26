@@ -1,0 +1,68 @@
+#weatherImg{
+    position: absolute;
+    width: 200px;
+    margin-left: -30px;
+    margin-top: -95px;
+}
+
+.pg2{
+    background-image: linear-gradient(to right, rgba(0,0,255,0), #91cece);
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    padding: 40px;
+    box-shadow: 0 0 5px 10px #555;
+}
+
+.pg2sec1{
+    width: 800px;
+    float: left;
+}
+
+.box{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: #68eaea;
+    border-radius: 45%;
+    overflow: hidden;
+}
+
+.box::before{
+    position: absolute;
+    content: '';
+    inset: -20px 140px;
+    background: linear-gradient(200deg, #ffff00,#ffff00);
+    transition: 0.5s;
+    animation: animate1 4s linear infinite;
+}
+
+@keyframes animate1 {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.box:hover::before{
+    inset: -20px 0px;
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: url("images/pg2.png");
+    background-size: cover;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.pg2sec2{
+    width: calc(100% - 800px);
+    float: left;
+    font-size: 30px;
+    padding-left:200px;
+    padding-top: 100px;
+}
